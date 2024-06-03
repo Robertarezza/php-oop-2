@@ -20,7 +20,7 @@ class Category {
         return $output;
     }
 
-    public function getNome() {
+    public function getName() {
         return $this->name;
     }
 

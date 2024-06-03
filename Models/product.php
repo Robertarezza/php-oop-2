@@ -18,14 +18,16 @@ class Product {
         return $this->id_product;
     }
 
-    public function getNome() {
+    public function getName() {
         return $this->name;
     }
 
-    public function getPrezzo() {
+    public function getPrice() {
         return $this->price;
     }
 
-    
+    public function getCategory() {
+        return $this->category;
+    }
     
 }

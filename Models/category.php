@@ -1,18 +1,34 @@
 <?php
 
 class Category {
-    private $nome;
+    private $name;
+    private $products = [];
 
-    public function __construct($nome) {
-        $this->nome = $nome;
+    public function __construct($_name) {
+        $this->name = $_name;
     }
 
+    public function addProduct($_product) {
+        $this->products[] = $_product;
+    }
+
+    public function listProduct() {
+        $output = [];
+        foreach ($this->products as $product) {
+            $output[] = (string) $product;
+        }
+        return $output;
+    }
 
     public function getNome() {
-        return $this->nome;
+        return $this->name;
     }
 
+    public function getProduct() {
+        return $this->products;
+    }
 
     
 }
 ?>
+

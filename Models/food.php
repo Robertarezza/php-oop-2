@@ -19,7 +19,8 @@ class Food extends Product {
         return $this->scadenza;
     }
 
-    
+    public function getCategory() {
+        return $this->category;
+    }
 }
 ?>
-s

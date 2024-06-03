@@ -12,13 +12,13 @@ class Category {
         $this->products[] = $_product;
     }
 
-    public function listProduct() {
-        $output = [];
-        foreach ($this->products as $product) {
-            $output[] =  $product;
-        }
-        return $output;
-    }
+    // public function listProduct() {
+    //     $cur_product = [];
+    //     foreach ($this->products as $_product) {
+    //         $cur_product[] = $_product;
+    //     }
+    //     return $cur_product;
+    // }
 
     public function getName() {
         return $this->name;

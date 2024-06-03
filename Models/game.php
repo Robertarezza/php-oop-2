@@ -13,7 +13,9 @@ class Game extends Product {
     public function getMateriale() {
         return $this->material;
     }
-
+    public function getCategory() {
+        return $this->category;
+    }
     
 }
 ?>

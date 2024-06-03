@@ -15,7 +15,7 @@ class Category {
     public function listProduct() {
         $output = [];
         foreach ($this->products as $product) {
-            $output[] = (string) $product;
+            $output[] =  $product;
         }
         return $output;
     }

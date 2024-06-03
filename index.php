@@ -3,27 +3,39 @@
 require_once __DIR__ . "/Models/product.php";
 require_once __DIR__ . "/Models/category.php";
 require_once __DIR__ . "/Models/game.php";
+require_once __DIR__ . "/Models/food.php";
 
 //categoria
-$category_gat = new Category ("Gatti");
-$catetory_dog = new Category ("Cane");
+$category_cat = new Category ("Gatto");
+$category_dog = new Category ("Cane");
 
 //prodotto 1 generico con categpria
-$prodotto1 = new Product (1, "lettiera", 12.90, $category_gat);
-var_dump($prodotto1);
+$prodotto1 = new Product (1, "lettiera", 12.90, $category_cat);
+//var_dump($prodotto1);
 
 //prodotto con categoria più specifica "GIOCO"
-$prodotto2 = new Game (2, "pallina", 2, $catetory_dog, "plastica");
-var_dump($prodotto2);
+$prodotto2 = new Game (2, "pallina", 2, $category_dog, "plastica");
+//var_dump($prodotto2);
+
+//prodotto con categoria più CIBO
+$prodotto3 = new Food (3, "bastoncino",1.99, $category_dog, 1, 2024);
+//var_dump($prodotto3);
 
 //aggiungo prodotti alla categoria cane
-$catetory_dog->addProduct("casetta");
-$catetory_dog->addProduct("cuscino");
-var_dump($prodotto2);
+$category_cat->addProduct($prodotto1);
+$category_dog->addProduct($prodotto2);
+
+//aggiunta prodotto cibo con relativi valori
+$category_dog->addProduct($prodotto3);
+//var_dump($prodotto2);
 
 //stampo la lista di prodotti presenti alla categoria cane
-$catetory_dog->listProduct();
-var_dump($catetory_dog);
+$category_dog->listProduct();
+var_dump($category_dog);
+
+//stampo la lista di prodotti presenti alla categoria gatti
+$category_cat->listProduct();
+var_dump($category_cat);
 
 // echo $prodotto2->getName();
 // echo $prodotto2->getPrice();

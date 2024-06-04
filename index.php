@@ -5,6 +5,12 @@ require_once __DIR__ . "/Models/category.php";
 require_once __DIR__ . "/Models/game.php";
 require_once __DIR__ . "/Models/food.php";
 require_once __DIR__ . "/Models/sit.php";
+require_once __DIR__ . '/Trait/material.php';
+
+
+
+
+
 
 // Creo categorie
 $categoria_gatto = new Category("Gatto");
@@ -21,14 +27,16 @@ $categoria_cane->setIcon("fa-solid fa-dog");
 $prodotto1 = new Product(1, "Tira Graffi", 12.90, $categoria_gatto);
 //$prodotto1->setImage("./img/tiragraffi");
 //con categoria e gioco
-$prodotto2 = new Game(2, "Pallina", 2, $categoria_cane, "plastica");
+$prodotto2 = new Game(2, "Pallina", 2, $categoria_cane,);
 $prodotto2->setImage("./img/pallina.jpg");
+$prodotto2->getMaterial("Plastica");
 //con categoria e cibo
-$prodotto3 = new Food(3, "Dentastics", 1.99, $categoria_cane, 1, 2024);
+$prodotto3 = new Food(3, "Dentastics", 1.99, $categoria_cane, 1, 2022);
 $prodotto3->setImage("./img/dentastix.webp");
 //con categoria e cuccia
-$prodotto4 = new Sit(4, "Lettiera", 50.99, $categoria_gatto, 1.20, "Plastica");
+$prodotto4 = new Sit(4, "Lettiera", 50.99, $categoria_gatto, 1.20);
 $prodotto4->setImage("./img/lettiera.jpg");
+$prodotto4->getMaterial("Plastica");
 
 // Aggiungi prodotto alla categorie gatto
 $categoria_gatto->addProduct($prodotto1);
@@ -43,7 +51,7 @@ $categoria_cane->addProduct($prodotto2);
 
 //stampo la lista di prodotti presenti alla categoria cane
 $prodottiCane = $categoria_cane->getProduct();
-//var_dump($prodottiCane);
+var_dump($prodottiCane);
 
 
 //stampo la lista di prodotti presenti alla categoria gatti
@@ -87,7 +95,7 @@ try {
             <h5 class="card-title"><?php echo $prodotto->getName() ?></h5>
             <p class="card-text">Prezzo: <?php echo $prodotto->getPrice() ?> euro</p>
             <?php if ($prodotto instanceof Game) : ?>
-              <p class="card-text">Materiale: <?php echo $prodotto->getMateriale() ?></p>
+              <p class="card-text">Materiale: <?php echo $prodotto->getMaterial() ?></p>
             <?php elseif ($prodotto instanceof Food) : ?>
               <p class="card-text">Scadenza: <?php echo $prodotto->getScadenza() ?></p>
               <p class="card-text">Peso: <?php echo $prodotto->getPeso() ?>kg</p>
@@ -107,12 +115,12 @@ try {
             <h5 class="card-title"><?php echo $prodotto->getName() ?></h5>
             <p class="card-text">Prezzo: <?php echo $prodotto->getPrice() ?> euro</p>
             <?php if ($prodotto instanceof Game) : ?>
-              <p class="card-text">Materiale: <?php echo $prodotto->getMateriale() ?></p>
+              <p class="card-text">Materiale: <?php echo $prodotto->getMaterial() ?></p>
             <?php elseif ($prodotto instanceof Food) : ?>
               <p class="card-text">Scadenza: <?php echo $prodotto->getScadenza() ?></p>
               <p class="card-text">Peso: <?php echo $prodotto->getPeso() ?>kg</p>
             <?php elseif ($prodotto instanceof Sit) : ?>
-              <p class="card-text">Materiale: <?php echo $prodotto->getMateriale() ?></p>
+              <p class="card-text">Materiale: <?php echo $prodotto->getMaterial() ?></p>
             <?php endif; ?>
           </div>
         </div>

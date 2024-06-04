@@ -14,17 +14,21 @@ $categoria_gatto->setIcon("fa-solid fa-cat");
 $categoria_cane = new Category("Cane");
 $categoria_cane->setIcon("fa-solid fa-dog");
 //$categoria_cane->getIcon("fa-solid fa-dog");
-var_dump($categoria_cane);
+//var_dump($categoria_cane);
 
 // Crea prodotti
 //solo con categoria
 $prodotto1 = new Product(1, "Tira Graffi", 12.90, $categoria_gatto);
+//$prodotto1->setImage("./img/tiragraffi");
 //con categoria e gioco
-$prodotto2 = new Game(2, "pallina", 2, $categoria_cane, "plastica");
+$prodotto2 = new Game(2, "Pallina", 2, $categoria_cane, "plastica");
+$prodotto2->setImage("./img/pallina.jpg");
 //con categoria e cibo
-$prodotto3 = new Food(3, "bastoncino", 1.99, $categoria_cane, 1, 2024);
+$prodotto3 = new Food(3, "Dentastics", 1.99, $categoria_cane, 1, 2024);
+$prodotto3->setImage("./img/dentastix.webp");
 //con categoria e cuccia
 $prodotto4 = new Sit(4, "Lettiera", 50.99, $categoria_gatto, 1.20, "Plastica");
+$prodotto4->setImage("./img/lettiera.jpg");
 
 // Aggiungi prodotto alla categorie gatto
 $categoria_gatto->addProduct($prodotto1);
@@ -46,6 +50,14 @@ $prodottiCane = $categoria_cane->getProduct();
 $prodottiGatto = $categoria_gatto->getProduct();
 //var_dump($categoria_gatto);
 
+//cattura l'eccezione
+// 
+try {
+ $prodotto1->setImage("");
+} catch (Exception $e) {
+  echo "<br>Eccezzione: " . $e->getMessage();
+}
+
 
 
 
@@ -63,16 +75,15 @@ $prodottiGatto = $categoria_gatto->getProduct();
   <title>Document</title>
 </head>
 
-<<body>
+<body>
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-around">
+      <h1 class="text-center">Prodotti</h1>
       <?php foreach ($prodottiCane as $prodotto) : ?>
-        <div class="card" style="width: 18rem;">
-
+        <div class="card mt-4" style="width: 18rem;">
           <h3 class="text-center">Categoria prodotto: <i class="<?php echo $categoria_cane->getIcon() ?>"></i> <?php echo $categoria_cane->getName() ?></h3>
-          <!-- <img src="..." class="card-img-top" alt="..."> -->
+           <img src="<?php echo $prodotto->getImage(); ?>" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Id Prototto:<?php echo $prodotto->getId() ?></h5>
             <h5 class="card-title"><?php echo $prodotto->getName() ?></h5>
             <p class="card-text">Prezzo: <?php echo $prodotto->getPrice() ?> euro</p>
             <?php if ($prodotto instanceof Game) : ?>
@@ -83,14 +94,14 @@ $prodottiGatto = $categoria_gatto->getProduct();
             <?php else : ?>
               <p class="card-text">Materiale: <?php echo $prodotto->getMaterial() ?></p>
             <?php endif; ?>
+            <p class="card-title">Id Prototto:<?php echo $prodotto->getId() ?></p>
           </div>
         </div>
       <?php endforeach; ?>
       <?php foreach ($prodottiGatto as $prodotto) : ?>
-        <div class="card" style="width: 18rem;">
-
+        <div class="card mt-4" style="width: 18rem;">
           <h3 class="text-center">Categoria prodotto:<i class="<?php echo $categoria_gatto->getIcon() ?>"></i> <?php echo $categoria_gatto->getName() ?></h3>
-          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <img src="<?php echo $prodotto->getImage(); ?>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Id Prototto:<?php echo $prodotto->getId() ?></h5>
             <h5 class="card-title"><?php echo $prodotto->getName() ?></h5>

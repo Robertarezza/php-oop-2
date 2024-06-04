@@ -1,10 +1,13 @@
 <?php
 
 class Category {
-    private $name;
-    private $products = [];
 
-    public function __construct($_name) {
+    private $name;
+    private $icon;
+    private $products = [];
+   
+
+    public function __construct(string $_name) {
         $this->name = $_name;
     }
 
@@ -12,13 +15,6 @@ class Category {
         $this->products[] = $_product;
     }
 
-    // public function listProduct() {
-    //     $cur_product = [];
-    //     foreach ($this->products as $_product) {
-    //         $cur_product[] = $_product;
-    //     }
-    //     return $cur_product;
-    // }
 
     public function getName() {
         return $this->name;
@@ -28,7 +24,15 @@ class Category {
         return $this->products;
     }
 
-    
+    public function setIcon($_icon) {
+
+         $this->icon = $_icon;
+    } 
+
+
+    public function getIcon() {
+        return $this->icon;
+    } 
 }
 ?>
 

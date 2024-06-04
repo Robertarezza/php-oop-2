@@ -8,6 +8,7 @@ class Product {
     protected Category $category;
 
     public function __construct(int $_id_product, string $_name, float $_price, Category $_category ) {
+        
         $this->id_product = $_id_product;
         $this->name = $_name;
         $this->price = $_price;

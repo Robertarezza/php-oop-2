@@ -29,14 +29,14 @@ $prodotto1 = new Product(1, "Tira Graffi", 12.90, $categoria_gatto);
 //con categoria e gioco
 $prodotto2 = new Game(2, "Pallina", 2, $categoria_cane,);
 $prodotto2->setImage("./img/pallina.jpg");
-$prodotto2->getMaterial("Plastica");
+$prodotto2->setMaterial("Plastica");
 //con categoria e cibo
 $prodotto3 = new Food(3, "Dentastics", 1.99, $categoria_cane, 1, 2022);
 $prodotto3->setImage("./img/dentastix.webp");
 //con categoria e cuccia
 $prodotto4 = new Sit(4, "Lettiera", 50.99, $categoria_gatto, 1.20);
 $prodotto4->setImage("./img/lettiera.jpg");
-$prodotto4->getMaterial("Plastica");
+$prodotto4->setMaterial("Plastica");
 
 // Aggiungi prodotto alla categorie gatto
 $categoria_gatto->addProduct($prodotto1);
@@ -51,7 +51,7 @@ $categoria_cane->addProduct($prodotto2);
 
 //stampo la lista di prodotti presenti alla categoria cane
 $prodottiCane = $categoria_cane->getProduct();
-var_dump($prodottiCane);
+//var_dump($prodottiCane);
 
 
 //stampo la lista di prodotti presenti alla categoria gatti

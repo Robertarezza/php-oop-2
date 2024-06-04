@@ -31,7 +31,7 @@ $prodotto2 = new Game(2, "Pallina", 2, $categoria_cane,);
 $prodotto2->setImage("./img/pallina.jpg");
 $prodotto2->setMaterial("Plastica");
 //con categoria e cibo
-$prodotto3 = new Food(3, "Dentastics", 1.99, $categoria_cane, 1, 2022);
+$prodotto3 = new Food(3, "Dentastics", 1.99, $categoria_cane, 1, "14/05/2026");
 $prodotto3->setImage("./img/dentastix.webp");
 //con categoria e cuccia
 $prodotto4 = new Sit(4, "Lettiera", 50.99, $categoria_gatto, 1.20);
